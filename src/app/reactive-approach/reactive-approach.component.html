@@ -6,7 +6,8 @@
           Customer Registration Page(Reactive Approach)
         </div>
         <div class="card-body">
-          <form>
+          <form [formGroup]="customerForm" 
+          (ngSubmit)="evtSubmit()" >
             <div class="mb-3 row">
               <label for="" class="col-sm-3 col-form-label">Name *</label>
               <div class="col-sm-9">
@@ -16,11 +17,19 @@
                   class="form-control"
                   id="name"
                   placeholder="Enter your name"
+                  formControlName = "CustomerName"
                 />
               </div>
 
-              <!-- <small *ngIf="localCustomerName.touched && localCustomerName.errors?.['required']" style="color:red">Please Enter your Name</small>
-              <small *ngIf="localCustomerName.touched && localCustomerName.errors?.['minlength']" style="color:red">Please enter atleast 5 charcters</small> -->
+              <!-- [formControlName] = "'CustomerName'" -->
+              
+             <small
+               *ngIf="customerForm.get('CustomerName')?.touched 
+               && customerForm.get('CustomerName')?.errors?.['required']"
+                style="color:red">Please Enter your Name</small>
+              
+              
+                 <small *ngIf="customerForm.get('CustomerName')?.touched && customerForm.get('CustomerName')?.errors?.['minlength']" style="color:red">Please enter atleast 5 charcters</small>
             </div>
             <!-- required -->
             <div class="mb-3 row">
@@ -32,12 +41,14 @@
                   class="form-control"
                   id="email"
                   placeholder="Enter your email"
+                  formControlName = "CustomerEmail"
                 />
               </div>
 
-              <!-- <small *ngIf="locCustomerEmail.touched && locCustomerEmail.errors?.['required']" style="color:red">Please Enter your Email</small> -->
+              <small *ngIf="customerForm.get('CustomerEmail')?.touched && customerForm.get('CustomerEmail')?.errors?.['required']" style="color:red">Please Enter your Email</small>
 
-              <!-- <small *ngIf="locCustomerEmail.touched && locCustomerEmail.errors?.['email']" style="color:red">Your email format is wrong . Please use email domain only</small> -->
+              <small *ngIf="customerForm.get('CustomerEmail')?.touched 
+              && customerForm.get('CustomerEmail')?.errors?.['email']" style="color:red">Your email format is wrong . Please use email domain only</small>
 
               <!-- <small  *ngIf="locCustomerEmail.touched && " style="color:red">  </small>  -->
             </div>
@@ -45,17 +56,24 @@
             <div class="mb-3 row">
               <label for="email" class="col-sm-3 col-form-label">State *</label>
               <div class="col-sm-9">
-                <select class="form-control" name="StateName">
+                <select class="form-control" name="StateName" 
+                 formControlName = "CustomerState">
                   <option value="" disabled selected>Please Select</option>
                   <option value="1">Delhi</option>
                   <option value="2">Karnataka</option>
                   <option value="3">TamilNadu</option>
+                  <option value="4">Hyderabad</option>
+                  <option value="5">Other State</option>
                 </select>
               </div>
-              <!-- <small style="color:red" *ngIf="StateName.touched && StateName.invalid">Please enter state Name</small> -->
+              <small style="color:red" 
+              *ngIf="customerForm.get('CustomerState')?.touched && 
+              customerForm.get('CustomerState')?.invalid">
+              Please enter state Name</small>
             </div>
+
             <div class="mb-3">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" [disabled]="customerForm.invalid" class="btn btn-primary">Submit</button>
             </div>
           </form>
         </div>

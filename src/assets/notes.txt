@@ -92,6 +92,26 @@ undefined.required --> problem
 
 
 
+formGroup     ---> Form
+      formControl  --> name
+
+
+
+
+
+formGroup     ---> Form
+      formControl  --> name
+      formControl  --> email
+      formControl  --> state
+
+
+
+
+
+
+
+
+
 
 
 
