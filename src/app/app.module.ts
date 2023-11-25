@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { TemplaeDrivenComponent } from './templae-driven/templae-driven.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveApproachComponent } from './reactive-approach/reactive-approach.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemplaeDrivenComponent
+    TemplaeDrivenComponent,
+    ReactiveApproachComponent
   ],
   imports: [
     BrowserModule,

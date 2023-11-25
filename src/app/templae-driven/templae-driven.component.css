@@ -1,0 +1,16 @@
+
+/* incase if your textbox (input texbox) contains below classes */
+
+/* class="form-control ng-pristine ng-invalid ng-touched"  */
+
+/* ._____________{
+   
+}*/
+
+input.ng-invalid.ng-touched{
+  border : 2px solid red;
+}
+
+select.ng-invalid.ng-touched{
+  border : 2px solid red;
+}

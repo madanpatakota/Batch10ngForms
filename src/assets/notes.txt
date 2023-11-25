@@ -42,4 +42,71 @@ validation message
 
 pristine --- form in the pristine status
 
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+required  and email attributes i have applied to the element (input)
+
+6 status
+--------
+
+
+we have to write logic for show the valiations besed on the below status
+------------------------------------------------------------------------
+
+ .html file ngModel  localref 
+      
+//ngModel to the element so then you can see the status
+      touched
+      untouched
+      dirty
+      pristine
+      valid 
+      invalid
+
+
+<small>please enter the name</small>
+
+
+/*negtivive sceneior
+var empdetails =  undefined;
+
+
+/*positive sceneior
+var empdetails =  { empName : 'John' };
+
+var empdetails = undefined ;
+
+empdetails?.empName    ---> error
+
+.required --> working fine
+
+undefined.required --> problem
+
+1. obj.empname  --> 'john'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  

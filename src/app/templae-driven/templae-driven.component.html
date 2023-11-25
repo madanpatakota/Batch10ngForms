@@ -4,10 +4,10 @@
 
 
   <div class="row">
-    <div class="col-md-5">
+    <!-- <div class="col-md-5"> -->
       <div class="card h-100">
         <div class="card-header bg-primary text-white">
-          Customer Registration Page
+          Customer Registration Page(TDA)
         </div>
         <div class="card-body">
 
@@ -28,6 +28,7 @@
                   placeholder="Enter your name"
                   ngModel
                   #localCustomerName = "ngModel"
+                  minlength="5"
                   required
                 />
               </div>
@@ -52,7 +53,24 @@
               <!-- I want to show the please enter your name based on the CustomerName element . incase if you touched and if you
                    Maintain the textbox in pristine status then show below message-->
               <!-- <small *ngIf="localCustomerName.touched && localCustomerName.pristine" style="color:red">Please Enter your Name</small> -->
-              <small *ngIf="localCustomerName.touched && localCustomerName.invalid" style="color:red">Please Enter your Name</small> 
+
+             
+              <!-- <small *ngIf="localCustomerName.touched && localCustomerName.invalid" style="color:red">Please Enter your Name</small>  -->
+                
+              <!-- Please enter atleast 5 charcters -->
+
+ <!-- invalid is here might be two reasons
+              1. either you are not enter the your name   -- Please Enter your Name
+              2. or you are not enter the 5 charcters     -- Please enter atleast 5 charcters  -->
+
+
+                
+
+
+              
+
+              <small *ngIf="localCustomerName.touched && localCustomerName.errors?.['required']" style="color:red">Please Enter your Name</small>
+              <small *ngIf="localCustomerName.touched && localCustomerName.errors?.['minlength']" style="color:red">Please enter atleast 5 charcters</small>
               
             </div>
             <!-- required -->
@@ -104,12 +122,32 @@
               <!-- <small  *ngIf="locCustomerEmail.touched && " style="color:red">  </small>  -->
 
             </div>
+
+
+            <div class="mb-3 row">
+              
+              <label for="email" class="col-sm-3 col-form-label">State *</label>
+              <div class="col-sm-9">
+                <select class="form-control" name="StateName" #StateName="ngModel" ngModel required>
+                   <option value="" disabled selected>Please Select</option>
+                   <option value="1">Delhi</option>
+                   <option value="2">Karnataka</option>
+                   <option value="3">TamilNadu</option>
+                </select>
+              </div>
+              <small style="color:red" *ngIf="StateName.touched && StateName.invalid">Please enter state Name</small>
+
+            </div>
             <div class="mb-3">
-              <button type="submit" class="btn btn-primary">Submit</button>
+
+              <!-- button shoule de enable if form is valid -->
+              <button type="submit"  class="btn btn-primary" [disabled]="customerForm?.invalid" >Submit</button>
+              <!-- <button type="submit"  class="btn btn-primary">Submit</button> -->
+
             </div>
           </form>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </div>

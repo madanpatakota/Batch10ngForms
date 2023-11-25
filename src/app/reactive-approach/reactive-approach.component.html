@@ -1,0 +1,65 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- <div class="col-md-5"> -->
+      <div class="card h-100">
+        <div class="card-header bg-secondary text-white">
+          Customer Registration Page(Reactive Approach)
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3 row">
+              <label for="" class="col-sm-3 col-form-label">Name *</label>
+              <div class="col-sm-9">
+                <input
+                  name="CustomerName"
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <!-- <small *ngIf="localCustomerName.touched && localCustomerName.errors?.['required']" style="color:red">Please Enter your Name</small>
+              <small *ngIf="localCustomerName.touched && localCustomerName.errors?.['minlength']" style="color:red">Please enter atleast 5 charcters</small> -->
+            </div>
+            <!-- required -->
+            <div class="mb-3 row">
+              <label for="email" class="col-sm-3 col-form-label">Email *</label>
+              <div class="col-sm-9">
+                <input
+                  name="CustomerEmail"
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <!-- <small *ngIf="locCustomerEmail.touched && locCustomerEmail.errors?.['required']" style="color:red">Please Enter your Email</small> -->
+
+              <!-- <small *ngIf="locCustomerEmail.touched && locCustomerEmail.errors?.['email']" style="color:red">Your email format is wrong . Please use email domain only</small> -->
+
+              <!-- <small  *ngIf="locCustomerEmail.touched && " style="color:red">  </small>  -->
+            </div>
+
+            <div class="mb-3 row">
+              <label for="email" class="col-sm-3 col-form-label">State *</label>
+              <div class="col-sm-9">
+                <select class="form-control" name="StateName">
+                  <option value="" disabled selected>Please Select</option>
+                  <option value="1">Delhi</option>
+                  <option value="2">Karnataka</option>
+                  <option value="3">TamilNadu</option>
+                </select>
+              </div>
+              <!-- <small style="color:red" *ngIf="StateName.touched && StateName.invalid">Please enter state Name</small> -->
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>
