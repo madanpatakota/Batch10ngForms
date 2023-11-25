@@ -1,0 +1,115 @@
+<div class="container mt-5">
+
+  <!-- validation message only for * fileds-->
+
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card h-100">
+        <div class="card-header bg-primary text-white">
+          Customer Registration Page
+        </div>
+        <div class="card-body">
+
+          <!-- when i am going to click the button i want to see the all the elements related status(should decorated ngModel) which are in the form -->
+
+          <!-- i know all elemtns are in the form element . here form is nothing but parent  -->
+
+          <!-- all the elements related status not only that but also you can check the all elements info also -->
+          <form (ngSubmit)="evtSubmit(customerForm)"  #customerForm ="ngForm" ngForm>
+            <div class="mb-3 row">
+              <label for="" class="col-sm-3 col-form-label">Name *</label>
+              <div class="col-sm-9">
+                <input
+                  name="CustomerName"
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter your name"
+                  ngModel
+                  #localCustomerName = "ngModel"
+                  required
+                />
+              </div>
+
+               <!-- you should involve -->
+
+                <!-- 1st case (without required)  - a -->
+              <!-- form-control ng-untouched ng-pristine ng-valid -->
+
+                <!-- 1st case (with required) b.-->
+              <!-- form-control ng-untouched ng-pristine ng-invalid -->
+
+
+              <!-- 2nd case -->
+              <!-- form-control ng-valid ng-dirty ng-touched -->
+                    <!-- i know this its in dirty status but my textbox is in empty postion.... -->
+
+
+              <!-- my target is check wehater that is empty or ont -->
+
+              <!-- touched , untocuhec , pristinen , dirty , valid , invalid -->
+              <!-- I want to show the please enter your name based on the CustomerName element . incase if you touched and if you
+                   Maintain the textbox in pristine status then show below message-->
+              <!-- <small *ngIf="localCustomerName.touched && localCustomerName.pristine" style="color:red">Please Enter your Name</small> -->
+              <small *ngIf="localCustomerName.touched && localCustomerName.invalid" style="color:red">Please Enter your Name</small> 
+              
+            </div>
+            <!-- required -->
+            <div class="mb-3 row">
+              
+              <label for="email" class="col-sm-3 col-form-label">Email *</label>
+              <div class="col-sm-9">
+                <input
+                  name = "CustomerEmail"
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                  ngModel
+                  #locCustomerEmail = "ngModel"
+                  required
+                  email
+                />
+              </div>
+
+              <!-- incase of email angular will treat this element as invalid -->
+
+
+              <!-- touch and not required -- >  Please Enter your Email -->
+
+              <!-- touch and inporper email Your email format is wrong . Please use email domain only -->
+
+              <!-- its invalid -->
+              <!-- errors: {required: true} -->
+              <small *ngIf="locCustomerEmail.touched && locCustomerEmail.errors?.['required']" style="color:red">Please Enter your Email</small>
+
+              <!-- its a valid but giving wrong email format -->
+
+
+              <!---   1. incase of errors { email  : true }
+                      2. incase of erros  null 
+                    
+                      var obj = { name : 'john'}
+                          1.obj.name
+                          2.obj['name']
+                    
+                    -->
+
+                   
+               <!-- errors: {email: true} -->
+              <small *ngIf="locCustomerEmail.touched && locCustomerEmail.errors?.['email']" style="color:red">Your email format is wrong . Please use email domain only</small>
+
+
+              <!-- <small  *ngIf="locCustomerEmail.touched && " style="color:red">  </small>  -->
+
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

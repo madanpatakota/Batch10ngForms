@@ -1,0 +1,45 @@
+
+
+why Validaitons?
+to guide users 
+
+How to create the validations in angular?
+2 ways 
+
+Template driven approch
+-----------------------
+
+we are handle the validatins in the template nothing but  .html file
+
+View 
+.ts file
+
+
+Reactive approch
+-----------------
+we will take the reference of Form  into .ts file and do the action(work)
+
+
+
+How you have to give the instruction to the angular weather that element (form ,div, texbox , p , button , span , h1)
+is having below status
+valid , invalid , pristine , dirty , touched , untouched
+
+
+Angular Forms
+
+
+touched 
+untoched
+
+valid   - touch and dirty but that value is not good(________@gmail.com)
+invalid - touch and dirty but that value is not good( 123456)
+
+pristine  -  element
+dirty     -  
+
+validation message
+
+pristine --- form in the pristine status
+
+ 
