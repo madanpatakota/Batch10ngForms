@@ -1,0 +1,86 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- <div class="col-md-5"> -->
+    <div class="card h-100">
+      <div class="card-header bg-secondary text-white">Form Array</div>
+      <div class="card-body">
+        <!-- [ 
+             {
+                Name : "john"
+             } , 
+             {
+               Name : "clerk"
+             } ] -->
+
+        <!--Details = {
+                       Hobbies : [
+                                   {
+                                     Personal : { HObbieName : "playing cricket"}
+                                   }
+                        ]  
+                     } -->
+
+        <!--Mainform = {
+                        formArray : [
+                                       {
+                                            Formgroup : {
+                                            "LaungageName" :  new FormControl(),
+                                            "Proficency"   :  new FormControl()
+                                          }
+                                       }
+                                    ]
+                     } -->
+
+        <!-- Array is nothing but collection of values
+       -- Formarry is nothing but collction of formgroups -->
+
+        <!--- { "Name " : "John"}-->
+        <!--- { "CustomerName" : new FormControl(____,_____) }-->
+        <!-- Object is nothing but key - value pair
+         formgroup is nothing but like a object 'controlName' : Control -->
+
+        <!-- div is a container -->
+
+        <form [formGroup]="MainForm">
+          <!-- Arry is nothing but collection of values-->
+          <!--ngFor-->
+          <div formArrayName="LangDetails" class="form-group">
+            <div
+              *ngFor="
+                let formgroup of getFormGroups();
+                let formgroupNameindex = index
+              "
+            >
+              <div formGroupName="{{ formgroupNameindex }}">
+                <div class="row m-3">
+                  <div class="col-6">
+                    <input
+                      placeholder="Enter Lang"
+                      class="form-control"
+                      type="text"
+                      formControlName="LaungageName"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <input
+                      placeholder="Enter Profecency"
+                      type="text"
+                      class="form-control"
+                      formControlName="Proficency"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div formGroupName="">
+               </div> -->
+          </div>
+
+          <button class="btn btn-primary"
+            (click)="evtCreateFormGroup()">Add another Languange</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
